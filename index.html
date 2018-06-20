@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" href="img/test-ico.png">
+		<title>Огнева А.Ю.-тестовое задание</title>
+		<link href="css/style.css" rel="stylesheet">
+	</head>
+
+	<body>
+
+    <header>
+      <h1> Актуальный список вакансий на <span></span></h1>
+    </header>
+
+    <section class="vacancies">
+      <h2 class="hidden">Вакансии</h2>
+      <div class="container">
+        <div class="vacancies-nav">
+          <div class="row justify-content-between">
+            <div class="col-12 col-sm-6 vacancies-nav__text">
+              элементов на странице:
+              <input type="number" class="vacancies-nav__number" value="100" min="5" max="237">
+              
+            </div>
+            <!-- /.col-6 -->
+            <div class="col-12 col-sm-6">
+              <div class="vacancies-nav__block">
+                <button class="vacancies-nav__prev">
+                &lt;</button>
+                <!-- /.vacancies-nav__prev -->
+                страница 
+                <select id="page_number" class="vacancies-nav__list">
+                  <option selected value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <!-- <option value="4">4</option> -->
+                </select>
+                из <span>3</span>
+                <button class="vacancies-nav__next vacancies-nav__next_active">
+                  &gt;
+                </button>
+                <!-- /.vacancies-nav__next -->
+              </div>
+              <!-- /.vacancies-nav__block -->
+            </div>
+            <!-- /.col-6 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.vacancies-nav -->
+        <div class="status-message"></div>
+        <div class="vacancy">
+
+          <div class="row align-items-center vacancy__header">
+            <div class="col-8 col-sm-1 order-1 order-sm-1">
+              <div class="vacancy__id">
+              </div>
+              <!-- /.vacancy__id -->
+            </div>
+            <!-- /.col-2 -->
+
+            <div class="col-12 col-sm-8 col-lg-9 order-3 order-sm-2">
+              <div class="vacancy__status">
+                <span></span>
+              </div>
+              <!-- /.vacancy__status -->
+            </div>
+            <!-- /.col-9 -->
+
+            <div class="col-4 col-sm-2 col-lg-1 order-2 order-sm-3">
+              <button class="vacancy__btn">
+              </button>
+              <!-- /.vacancy__btn -->
+            </div>
+            <!-- /.col-1 -->
+          </div>
+          <!-- /.row -->
+
+          <div class="row vacancy__body">
+            <div class="col-12 col-sm-8 col-lg-6">
+              <div class="vacancy__title">
+              </div>
+              <!-- /.vacancy__title -->
+              <div class="vacancy__organization">
+              </div>
+              <!-- /.vacancy__organization -->
+            </div>
+            <!-- /.col-6 -->
+
+            <div class="col-12 col-sm-4 col-lg-6">
+              <div class="vacancy__createtime">
+              </div>
+              <!-- /.vacancy__createtime -->
+              <div class="vacancy__city">
+              </div>
+              <!-- /.vacancy__city -->
+            </div>
+            <!-- /.col-6 --> 
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.vacancy -->
+      </div>
+      <!-- /.container -->
+    </section>
+
+    <!-- модальное окно с вакансией -->
+    <div class="overlay">
+      <div class="popup">
+        <h2 class="popup-title">Помощник капитана</h2>
+        <div class="popup-body">
+          <div class="popup-body__candidates">
+            <h3>Кандидаты</h3>
+            <div class="popup__thead">
+              <div class="popup__thead_candidate">
+                ФИО
+              </div>
+              <!-- /.popup__thead_candidate -->
+              <div class="popup__thead_status">
+                Статус
+              </div>
+              <!-- /.popup__thead_status -->
+            </div>
+            <!-- /.popup__thead -->
+
+            <div class="popup__tdata_nodata"> нет кандидатов по данной вакансии</div>
+            <!-- /.popup__tdata_nodata -->
+            <div class="status-message-vacancy"></div>
+            <div class="popup__tdata_wrap">
+
+              <div class="popup__tdata">
+                <div class="popup__tdata_candidate">
+                </div>
+                <!-- /.popup__tdata_candidate -->
+                <div class="popup__tdata_status">
+                </div>
+                <!-- /.popup__tdata_status -->
+              </div>
+              <!-- /.popup__tdata -->
+
+              
+            </div>
+            <!-- /.popup__tdata_wrap -->
+
+          </div>
+          <!-- /.popup-body__candidates -->
+          <div class="popup-body__candidate">
+            <p class="popup-body__candidate_text">
+              Выберите кандидата для отображения его информации
+            </p>
+            <div class="status-message-candidate"></div>
+            <div class="popup-body__candidate_descr">
+              <div class="descr_title">
+                Фамилия: <span class="descr_data"></span>
+              </div>
+              <div class="descr_title">
+                Имя: <span class="descr_data"></span>
+              </div>
+              <div class="descr_title">
+                Отчество: <span class="descr_data"></span>
+              </div>
+              <div class="descr_title">
+                Телефон: <span class="descr_data"></span>
+              </div>
+              <div class="descr_title">
+                E-mail: <span class="descr_data"></span>
+              </div>
+              <!-- /.descr_title -->
+            </div>
+            <!-- /.popup-body__candidate_descr -->
+
+          </div>
+          <!-- /.popup-body__candidate -->
+        </div>
+        <div class="popup-close"></div>
+      </div>
+      <!--/.popup -->
+    </div>
+    <!--/.overlay -->
+
+    <footer>
+      тестовое задание Огнева А.Ю.
+      <a href="#" class="footer-btn">наверх</a>
+   </footer>
+
+	
+		<!-- подключения -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<script src="js/script.js"></script>
+	</body>
+</html>

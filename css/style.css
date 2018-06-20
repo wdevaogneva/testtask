@@ -1,0 +1,604 @@
+@font-face {
+  font-family: "Roboto Bold";
+  src: url("../fonts/Roboto-Bold.eot");
+  src: url("../fonts/Roboto-Bold.eot?#iefix");
+  src: url("../fonts/Roboto-Bold.woff2");
+  src: url("../fonts/Roboto-Bold.woff");
+  src: url("../fonts/Roboto-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.eot");
+  src: url("../fonts/Roboto-Regular.eot?#iefix");
+  src: url("../fonts/Roboto-Regular.woff2");
+  src: url("../fonts/Roboto-Regular.woff");
+  src: url("../fonts/Roboto-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto Light";
+  src: url("../fonts/Roboto-Light.eot");
+  src: url("../fonts/Roboto-Light.eot?#iefix");
+  src: url("../fonts/Roboto-Light.woff2");
+  src: url("../fonts/Roboto-Light.woff");
+  src: url("../fonts/Roboto-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+}
+
+input:focus,
+button:focus,
+textarea:focus,
+select:focus,
+option:focus {
+  outline: none;
+}
+
+input:invalid {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+header {
+  background-color: #8395de;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+header h1 {
+  font-family: "Roboto Bold", sans-serif;
+  font-size: 30px;
+  line-height: 34px;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+.status-message {
+  font-family: "Roboto Bold", sans-serif;
+  font-size: 20px;
+  line-height: 100px;
+  text-align: center;
+}
+
+.vacancies {
+  padding-top: 20px;
+}
+
+.vacancies-nav {
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.vacancies-nav__number {
+  width: 50px;
+  font-family: "Roboto Light", sans-serif;
+  font-size: 14px;
+  text-align: center;
+  border-color: #8395de;
+  border-radius: 10px;
+}
+
+.vacancies-nav__block {
+  text-align: right;
+}
+
+.vacancies-nav__block span {
+  font-family: "Roboto Bold", sans-serif;
+  font-style: normal;
+}
+
+.vacancies-nav__prev,
+.vacancies-nav__next {
+  width: 25px;
+  height: 25px;
+  line-height: 16px;
+  font-family: "Roboto Bold", sans-serif;
+  color: #ffffff;
+  background-color: #8f9094;
+  border: none;
+  border-radius: 50%;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.vacancies-nav__prev_active,
+.vacancies-nav__next_active {
+  background-color: #8395de;
+}
+
+.vacancies-nav__prev:hover,
+.vacancies-nav__next:hover {
+  background-color: #4665dd;
+}
+
+.vacancies-nav__list {
+  font-family: "Roboto Light", sans-serif;
+  text-align: center;
+  border: 2px solid #8395de;
+  border-radius: 10px;
+}
+
+.vacancy {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #8395de;
+  border-radius: 10px;
+  display: none;
+}
+
+.vacancy_show {
+  display: block;
+}
+
+.vacancy__header {
+  margin: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgba(131, 149, 222, 0.3);
+}
+
+.vacancy__id {
+  font-family: "Roboto Bold", sans-serif;
+  color: #4665dd;
+}
+
+.vacancy__status {
+  font-family: "Roboto Bold", sans-serif;
+  text-align: right;
+}
+
+.vacancy__status span {
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #f0548a;
+  font-size: 16px;
+}
+
+.vacancy__btn {
+  width: 100%;
+  height: 25px;
+  margin-top: 3px;
+  background: #8395de url("../img/long-arrow.png") center no-repeat;
+  border: none;
+  border-radius: 10px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.vacancy__btn:hover {
+  background-color: #4665dd;
+}
+
+.vacancy__body {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.vacancy__title {
+  padding-left: 50px;
+  font-family: "Roboto Bold", sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.vacancy__organization {
+  padding-left: 50px;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+}
+
+.vacancy__createtime {
+  font-family: "Roboto", sans-serif;
+  color: #4665dd;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.vacancy__city {
+  font-family: "Roboto", sans-serif;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(31, 31, 31, 0.65);
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 95%;
+  height: 85vh;
+  padding-top: 15px;
+  text-align: center;
+  background-color: #ffffff;
+  overflow: auto;
+}
+
+.popup-title {
+  font-family: "Roboto Bold", sans-serif;
+  color: #4665dd;
+  letter-spacing: 0.3px;
+}
+
+.popup-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  margin: 20px;
+  height: 80%;
+}
+
+.popup-body__candidate {
+  width: 49%;
+  background-color: rgba(31, 31, 31, 0.2);
+  padding: 20px;
+}
+
+.popup-body__candidate_text {
+  margin-top: 15px;
+}
+
+.popup-body__candidate_descr {
+  display: none;
+  padding: 15px;
+  background-color: #ffffff;
+}
+
+.popup-body__candidate_descr .descr_title {
+  margin-bottom: 10px;
+  font-family: "Roboto Bold", sans-serif;
+  text-align: left;
+}
+
+.popup-body__candidate_descr .descr_data {
+  margin-left: 10px;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+}
+
+.popup-body__candidates {
+  width: 49%;
+  max-height: 100%;
+  padding: 10px;
+  background-color: rgba(70, 101, 221, 0.2);
+}
+
+.popup-body__candidates h3 {
+  text-align: left;
+  font-size: 20px;
+}
+
+.popup__thead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.popup__thead_candidate,
+.popup__thead_status {
+  width: 50%;
+  color: #ffffff;
+  background-color: rgba(70, 101, 221, 0.6);
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+}
+
+.popup__tdata {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-top: 2px;
+  display: none;
+}
+
+.popup__tdata_candidate,
+.popup__tdata_status {
+  width: 49.7%;
+  padding: 5px;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+.popup__tdata_wrap {
+  width: 100%;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.popup__tdata_nodata {
+  display: block;
+}
+
+.popup__tdata_click {
+  color: #ffffff;
+}
+
+.popup__tdata_click .popup__tdata_candidate,
+.popup__tdata_click .popup__tdata_status {
+  font-family: "Roboto Bold", sans-serif;
+  background-color: rgba(70, 101, 221, 0.3);
+}
+
+.popup-close {
+  position: absolute;
+  top: 0;
+  right: -15px;
+  z-index: 3;
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.popup-close:before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: -16px;
+  z-index: 4;
+  height: 3px;
+  width: 22px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  background-color: #000000;
+}
+
+.popup-close:after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: -16px;
+  z-index: 4;
+  height: 3px;
+  width: 22px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: #000000;
+}
+
+footer {
+  position: relative;
+  font-family: "Roboto Light", sans-serif;
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #414245;
+}
+
+.footer-btn {
+  position: absolute;
+  right: 100px;
+  top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+}
+
+.footer-btn:hover {
+  font-family: "Roboto Bold", sans-serif;
+  text-decoration: none;
+  color: #414245;
+  background-color: #ffffff;
+}
+
+@media (max-width: 991px) {
+  header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  header h1 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .popup-body__candidate {
+    width: 39%;
+    padding: 15px;
+  }
+
+  .popup-body__candidate_descr {
+    padding: 10px;
+  }
+
+  .popup-body__candidate_descr .descr_data {
+    margin-left: 5px;
+    word-wrap: break-word;
+  }
+
+  .popup-body__candidates {
+    width: 60%;
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  header h1 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .vacancy__title,
+  .vacancy__organization {
+    padding-left: 20px;
+  }
+
+  .vacancy__status span {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px;
+  }
+
+  .vacancy__body {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .vacancy__title {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .vacancy__organization {
+    font-size: 14px;
+  }
+
+  .vacancy__createtime {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .vacancy__city {
+    font-size: 14px;
+  }
+
+  .footer-btn {
+    position: absolute;
+    right: 60px;
+  }
+
+  .popup-body {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .popup-body__candidate {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .popup-body__candidates {
+    width: 100%;
+  }
+
+  .popup__tdata_wrap {
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 575px) {
+  header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .vacancies {
+    padding-top: 10px;
+  }
+
+  .vacancies-nav__block {
+    margin-top: 7px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .vacancies-nav__text {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .vacancy__status {
+    text-align: center;
+  }
+
+  .vacancy__status span {
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .vacancy__btn {
+    max-width: 70px;
+    height: 20px;
+  }
+
+  .vacancy__createtime,
+  .vacancy__city {
+    padding-left: 20px;
+  }
+
+  .popup-title {
+    margin-top: 5px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .popup-body__candidate_descr .descr_title {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .popup-body__candidates h3 {
+    font-size: 16px;
+  }
+
+  .popup__thead_candidate,
+  .popup__thead_status {
+    font-size: 16px;
+  }
+
+  .popup__tdata_candidate,
+  .popup__tdata_status {
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  footer {
+    padding-left: 25px;
+    text-align: left;
+  }
+
+  .footer-btn {
+    right: 30px;
+  }
+}

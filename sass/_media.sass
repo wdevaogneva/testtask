@@ -1,0 +1,114 @@
+@media (max-width: 991px)
+	header
+		padding-top: 15px
+		padding-bottom: 15px
+		h1
+			font-size: 24px
+			line-height: 28px
+	.popup
+		&-body
+			&__candidate
+				width: 39%
+				padding: 15px
+				&_descr
+					padding: 10px
+					.descr
+						&_data
+							margin-left: 5px
+							word-wrap: break-word
+				&s
+					width: 60%
+
+@media (max-width: 767px)
+	header
+		padding-top: 10px
+		padding-bottom: 10px
+		h1
+			font-size: 20px
+			line-height: 24px
+	.vacancy__title, .vacancy__organization
+		padding-left: 20px
+	.vacancy
+		&__status
+			span
+				padding-left: 10px
+				padding-right: 10px
+				font-size: 14px
+		&__body
+			margin-top: 10px
+			margin-bottom: 10px
+		&__title
+			font-size: 16px
+			line-height: 20px
+		&__organization
+			font-size: 14px
+		&__createtime
+			font-size: 14px
+			line-height: 20px
+		&__city
+			font-size: 14px
+	.footer-btn
+		position: absolute
+		right: 60px
+	.popup
+		&-body
+			flex-wrap: wrap
+			&__candidate
+				width: 100%
+				padding: 15px
+				&s
+					width: 100%
+		&__tdata
+			&_wrap
+				max-height: 150px
+
+@media (max-width: 575px)
+	header
+		padding-top: 5px
+		padding-bottom: 5px
+	.vacancies
+		padding-top: 10px
+		&-nav
+			&__block
+				margin-top: 7px
+				text-align: center
+				font-size: 14px
+			&__text
+				text-align: center
+				font-size: 14px
+	.vacancy
+		&__status
+			text-align: center
+			span
+				padding: 0
+				font-size: 14px
+		&__btn
+			max-width: 70px
+			height: 20px
+		&__createtime, &__city
+			padding-left: 20px
+	.popup
+		&-title
+			margin-top: 5px
+			font-size: 20px
+			line-height: 20px
+		&-body__candidate
+			&_descr
+				.descr_title
+					font-size: 14px
+					line-height: 16px
+			&s
+				h3
+					font-size: 16px
+		&__thead
+			&_candidate, &_status
+				font-size: 16px
+		&__tdata
+			&_candidate, &_status
+				font-size: 14px
+				line-height: 16px
+	footer
+		padding-left: 25px
+		text-align: left
+	.footer-btn
+		right: 30px

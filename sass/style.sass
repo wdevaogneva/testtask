@@ -1,0 +1,275 @@
+@import 'fonts'
+@import 'reset'
+
+$color-dark: #4665dd
+$color-light: #ffffff
+$color: #8395de
+
+=roboto
+    font-family: "Roboto", sans-serif
+
+=roboto-b
+    font-family: "Roboto Bold", sans-serif
+
+=roboto-l
+    font-family: "Roboto Light", sans-serif
+
+header
+	background-color: $color
+	padding-top: 20px
+	padding-bottom: 20px
+	h1
+		@include roboto-b
+		font-size: 30px
+		line-height: 34px
+		text-align: center
+		letter-spacing: 2px
+		color: $color-light
+
+.status-message
+	@include roboto-b
+	font-size: 20px
+	line-height: 100px
+	text-align: center
+
+.vacancies
+	padding-top: 20px
+	&-nav
+		margin-bottom: 20px
+		font-style: italic
+		&__number
+			width: 50px
+			@include roboto-l
+			font-size: 14px
+			text-align: center
+			border:
+				color: $color
+				radius: 10px
+		&__block
+			text-align: right
+			span
+				@include roboto-b
+				font-style: normal
+		&__prev, &__next
+			width: 25px
+			height: 25px
+			line-height: 16px
+			@include roboto-b
+			color: $color-light
+			background-color: #8f9094
+			border: none
+				radius: 50%
+			transition: all 0.2s
+			&_active
+				background-color: $color
+			&:hover
+				background-color: $color-dark
+		&__list
+			@include roboto-l
+			text-align: center
+			border: 2px solid $color 
+				radius: 10px
+
+
+.vacancy
+	margin-top: 10px
+	margin-bottom: 10px
+	border: 2px solid $color
+		radius: 10px
+	display: none
+	&_show
+		display: block
+	&__header
+		margin: 0
+		padding-top: 5px
+		padding-bottom: 5px
+		background-color: rgba($color, 0.3)
+	&__id
+		@include roboto-b
+		color: $color-dark
+	&__status
+		@include roboto-b
+		text-align: right		
+		span
+			padding-left: 15px
+			padding-right: 15px
+			background-color: #f0548a
+			font-size: 16px
+	&__btn
+		width: 100%
+		height: 25px
+		margin-top: 3px
+		background: $color url(../img/long-arrow.png) center no-repeat
+		border: none
+			radius: 10px
+		transition: all 0.2s
+		&:hover
+			background-color: $color-dark
+	&__body
+		margin-top: 20px
+		margin-bottom: 20px
+	&__title
+		padding-left: 50px
+		@include roboto-b
+		font-size: 20px
+		line-height: 28px
+	&__organization
+		padding-left: 50px
+		@include roboto
+		font-style: italic
+	&__createtime
+		@include roboto
+		color: $color-dark
+		font-size: 16px
+		line-height: 28px
+	&__city
+		@include roboto
+
+.overlay
+	position: fixed
+	top: 0
+	z-index: 3
+	display: none
+	width: 100%
+	height: 100%
+	background-color: rgba(#1f1f1f, 0.65)
+	
+		
+
+.popup
+	position: fixed
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	width: 95%
+	height: 85vh
+	padding-top: 15px
+	text-align: center
+	background-color: $color-light
+	overflow: auto
+	&-title
+		@include roboto-b
+		color: $color-dark
+		letter-spacing: 0.3px
+	&-body
+		display: flex
+		justify-content: space-between
+		align-items: flex-start
+		margin: 20px
+		height: 80%
+		&__candidate
+			width: 49%
+			background-color: rgba(#1f1f1f, 0.2)
+			padding: 20px
+			&_text
+				margin-top: 15px
+			&_descr
+				display: none
+				padding: 15px
+				background-color: $color-light
+				.descr
+					&_title
+						margin-bottom: 10px
+						@include roboto-b
+						text-align: left
+					&_data
+						margin-left: 10px
+						@include roboto
+						font-style: italic
+			&s
+				width: 49%
+				max-height: 100%
+				padding: 10px
+				background-color: rgba($color-dark, 0.2)
+					
+				h3
+					text-align: left
+					font-size: 20px
+	&__thead
+		display: flex
+		justify-content: space-between
+		&_candidate, &_status
+			width: 50%
+			color: $color-light
+			background-color: rgba($color-dark, 0.6)
+			@include roboto
+			font-style: italic
+	&__tdata
+		//display: flex
+		justify-content: space-between
+		margin-top: 2px
+		display: none
+		&_candidate, &_status
+			width: 49.7%
+			padding: 5px
+			text-align: left
+			background-color: $color-light
+		&_wrap
+			width: 100%
+			max-height: 300px
+			overflow: auto
+		&_nodata
+			display: block
+		&_click
+			color: $color-light
+			.popup__tdata_candidate, .popup__tdata_status
+				@include roboto-b
+				background-color: rgba($color-dark, 0.3)
+	&-close
+		position: absolute
+		top: 0
+		right: -15px
+		z-index: 3
+		width: 23px
+		height: 23px
+		cursor: pointer
+		z-index: 5
+		&:before
+			content: ''
+			position: absolute
+			top: 14px
+			left: -16px
+			z-index: 4
+			height: 3px
+			width: 22px
+			transform: rotate(-45deg)
+			background-color: #000000
+		&:after
+			content: ''
+			position: absolute
+			top: 14px
+			left: -16px
+			z-index: 4
+			height: 3px
+			width: 22px
+			transform: rotate(45deg)
+			background-color: #000000
+
+
+footer
+	position: relative
+	@include roboto-l
+	font-size: 12px
+	line-height: 30px
+	text-align: center
+	color: $color-light
+	background-color: #414245
+.footer-btn
+	position: absolute
+	right: 100px
+	top: 5px
+	padding-left: 10px
+	padding-right: 10px
+	@include roboto
+	font-size: 14px
+	line-height: 20px
+	color: $color-light
+	border: 1px solid $color-light
+		radius: 5px
+	&:hover
+		@include roboto-b
+		text-decoration: none
+		color: #414245
+		background-color: $color-light
+
+@import 'media'
